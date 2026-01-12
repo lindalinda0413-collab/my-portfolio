@@ -27,7 +27,6 @@
         .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); backdrop-filter: blur(8px); }
         .modal-content { margin: auto; display: block; max-width: 85%; max-height: 85%; position: relative; top: 50%; transform: translateY(-50%); border: 4px solid white; }
         .close-modal { position: absolute; top: 30px; right: 50px; color: white; font-size: 50px; cursor: pointer; }
-        footer { text-align: center; padding: 40px; background-color: #efe6dd; color: #8c7b6d; font-size: 14px; }
     </style>
 </head>
 <body>
@@ -46,7 +45,7 @@
         <div class="main-container">
             <div class="left-column">
                 <h2 style="font-family: serif; color: #3e2f20;">關於我</h2>
-                <p>你好，我是 CHIA LING TUNG。我致力於結合 AI 尖端技術與教育領域，擁有多項 Google、OpenAI、Anthropic 及 AWS 的國際認證。</p>
+                <p>你好，我是 CHIA LING TUNG。我致力於結合 AI 尖端技術與教育領域，擁有多項 Google、OpenAI 及 Anthropic 的國際認證。</p>
                 <img src="my_photo.JPG" alt="個人形象照" class="profile-photo">
             </div>
 
@@ -55,12 +54,10 @@
                 <div class="cert-list">
                     <div class="cert-item" onclick="openModal('影像.jpg')"><div style="font-size:11px;color:#998a7b">AWS</div><div class="cert-name">Generative AI: Business Skill</div></div>
                     <div class="cert-item" onclick="openModal('董家玲.jpg')"><div style="font-size:11px;color:#998a7b">國立臺灣科技大學</div><div class="cert-name">AI for Good 實戰工作坊</div></div>
-                    
                     <div class="cert-item" onclick="openModal('gemini_cert.jpg')"><div style="font-size:11px;color:#998a7b">Google</div><div class="cert-name">Gemini Certified Educator</div></div>
                     <div class="cert-item" onclick="openModal('chatgpt_cert.jpg')"><div style="font-size:11px;color:#998a7b">OpenAI</div><div class="cert-name">ChatGPT Foundations for Teachers</div></div>
-                    
                     <div class="cert-item" onclick="openModal('01.jpg')"><div style="font-size:11px;color:#998a7b">Anthropic</div><div class="cert-name">Claude Code in Action</div></div>
-                    <div class="cert-item" onclick="openModal('02.jpg')"><div style="font-size:11px;color:#998a7b">Anthropic</div><div class="cert-name">Introduction to Model Context Protocol</div></div>
+                    <div class="cert-item" onclick="openModal('02.jpg')"><div style="font-size:11px;color:#998a7b">Anthropic</div><div class="cert-name">Model Context Protocol</div></div>
                     <div class="cert-item" onclick="openModal('03.jpg')"><div style="font-size:11px;color:#998a7b">Ringling / Anthropic</div><div class="cert-name">AI Fluency for Educators</div></div>
                     <div class="cert-item" onclick="openModal('04.jpg')"><div style="font-size:11px;color:#998a7b">Ringling / Anthropic</div><div class="cert-name">AI Fluency for Students</div></div>
                     <div class="cert-item" onclick="openModal('05.jpg')"><div style="font-size:11px;color:#998a7b">Ringling / Anthropic</div><div class="cert-name">AI Framework & Foundations</div></div>
@@ -68,8 +65,8 @@
 
                 <h3 class="cert-category">專業執照 (2張)</h3>
                 <div class="cert-list">
-                    <div class="cert-item" onclick="openModal('emt1.jpg')"><div style="font-size:11px;color:#998a7b">中華職業技能發展學會</div><div class="cert-name">EMT-1 初級救護員執照</div></div>
-                    <div class="cert-item" onclick="openModal('osha.jpg')"><div style="font-size:11px;color:#998a7b">勞動部</div><div class="cert-name">甲種職業安全衛生業務主管</div></div>
+                    <div class="cert-item" onclick="openModal('emt1.jpg')"><div style="font-size:11px;color:#998a7b">專業認證</div><div class="cert-name">EMT-1 初級救護員執照</div></div>
+                    <div class="cert-item" onclick="openModal('osha.jpg')"><div style="font-size:11px;color:#998a7b">勞動部認證</div><div class="cert-name">甲種職業安全衛生業務主管</div></div>
                 </div>
             </div>
         </div>
@@ -91,8 +88,5 @@
             document.body.style.overflow = "auto";
         }
     </script>
-    <footer>
-        <p>&copy; 2026 CHIA LING TUNG. All rights reserved.</p>
-    </footer>
 </body>
 </html>
