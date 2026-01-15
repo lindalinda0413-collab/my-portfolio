@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作品集 - CHIA LING TUNG</title>
+    <style>
+        html { scroll-behavior: smooth; }
+        body { margin: 0; padding: 0; font-family: "Helvetica Neue", Arial, "Microsoft JhengHei", sans-serif; background-color: #fbf7f4; color: #5a4a3a; line-height: 1.6; }
+        
+        /* --- 導覽列 --- */
+        header { display: flex; justify-content: space-between; align-items: center; padding: 30px 50px; background-color: #fbf7f4; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #eaddcf; }
+        .brand-name { font-family: "Times New Roman", "Microsoft JhengHei", serif; font-size: 32px; color: #bfa588; text-transform: uppercase; letter-spacing: 5px; font-weight: bold; }
+        nav a { text-decoration: none; color: #5a4a3a; margin-left: 30px; font-size: 16px; font-weight: 500; transition: 0.3s; }
+        nav a:hover { color: #d4a373; }
+        
+        /* --- Hero 主視覺 --- */
+        .hero { text-align: center; padding: 80px 20px; }
+        .hero h1 { font-family: "Times New Roman", serif; font-size: 56px; margin: 0; color: #3e2f20; letter-spacing: 2px; }
+        .hero-separator { width: 80px; height: 3px; background-color: #d4a373; margin: 30px auto; }
+        
+        section { padding: 40px 20px; max-width: 1000px; margin: 0 auto; }
+        
+        h2.section-title { 
+            font-family: "Times New Roman", "Microsoft JhengHei", serif; font-size: 32px; color: #3e2f20; 
+            border-left: 5px solid #d4a373; padding-left: 15px; margin-bottom: 40px; 
+            display: flex; align-items: center; margin-top: 60px;
+        }
+
+        /* --- 個人簡介 Profile --- */
+        .profile-container { display: flex; gap: 50px; flex-wrap: wrap; background: #fff; padding: 40px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-bottom: 60px; }
+        .profile-left { flex: 1; text-align: center; min-width: 250px; }
+        .profile-video { width: 220px; height: 220px; object-fit: cover; border-radius: 50%; border: 5px solid #fbf7f4; }
+        .profile-right { flex: 2; min-width: 300px; }
+        .profile-info-list { list-style: none; padding: 0; margin-bottom: 20px; }
+        .profile-info-list li { margin-bottom: 8px; font-size: 16px; border-bottom: 1px dashed #eee; padding-bottom: 5px; }
+        .profile-info-list strong { color: #d4a373; margin-right: 10px; }
+        .bio-text { background: #f9f9f9; padding: 20px; border-left: 4px solid #998a7b; font-size: 15px; color: #666; }
+
+        /* --- 我的設計卡片樣式 --- */
+        .design-grid-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; }
+        .design-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; cursor: pointer; border: 1px solid #eee; display: flex; flex-direction: column; position: relative; }
+        .design-card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(212, 163, 115, 0.2); }
+        .design-card-img { width: 100%; height: 180px; object-fit: cover; border-bottom: 3px solid #fbf7f4; background-color: #f0e6dc; }
+        .design-card-content { padding: 20px; flex-grow: 1; background: #3e2f20; color: #fff; text-align: center; }
+        .design-count { font-size: 13px; color: #d4a373; }
+
+        /* --- 燈箱樣式 --- */
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(62, 47, 32, 0.95); backdrop-filter: blur(5px); overflow-y: auto; }
+        .close-modal { position: fixed; top: 20px; right: 40px; color: #fbf7f4; font-size: 50px; cursor: pointer; z-index: 2001;}
+        .modal-gallery-container { display: none; width: 90%; max-width: 1100px; margin: 80px auto 40px auto; background: #fbf7f4; padding: 40px; border-radius: 12px; }
+        .modal-gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .modal-gallery-img { width: 100%; height: auto; border-radius: 8px; border: 4px solid #fff; transition: 0.3s; }
+        
+        footer { text-align: center; padding: 40px; background-color: #efe6dd; color: #8c7b6d; font-size: 14px; margin-top: 80px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="brand-name">作品集</div>
+        <nav>
+            <a href="#profile">個人簡介</a>
+            <a href="#my-designs">我的設計</a>
+            <a href="#contact" style="color: #d4a373; font-weight: bold;">聯絡我</a>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h1>CHIA LING TUNG</h1>
+        <div class="hero-separator"></div>
+        <p>AI 應用規劃師 | 美編平面設計師 | 跨領域整合專家</p>
+    </div>
+
+    <section id="profile">
+        <h2 class="section-title">個人簡介 Profile</h2>
+        <div class="profile-container">
+            <div class="profile-left">
+                <video class="profile-video" autoplay loop muted playsinline>
+                    <source src="profile_video.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="profile-right">
+                <ul class="profile-info-list">
+                    <li><strong>姓名：</strong>董家玲 (Linda)</li>
+                    <li><strong>目標職務：</strong>AI 應用規劃師</li>
+                </ul>
+                <div class="bio-text">
+                    <p>我能設計出「AI Agent 工作流」，將 AI 轉化為能自主協作的數位同事。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="my-designs">
+        <h2 class="section-title">我的設計 My Designs</h2>
+        <div class="design-grid-container">
+            
+            <div class="design-card" onclick="openGallery('AI 圖像生成區', 'ai_art_1.mp4,ai_art_2.mp4,ai_art_3.mp4,ai_art_4.mp4')">
+                <video class="design-card-img" autoplay loop muted playsinline>
+                    <source src="ai_art_1.mp4" type="video/mp4">
+                </video>
+                <div class="design-card-content">
+                    <div class="design-card-title">AI 圖像生成區</div>
+                    <div class="design-count">共 4 段影片</div>
+                </div>
+            </div>
+
+            <div class="design-card" onclick="openGallery('AI 商業應用 - 商品', 'ai_prod_1.jpg,ai_prod_2.jpg,ai_prod_3.jpg,ai_prod_4.jpg')">
+                <img src="ai_prod_1.jpg" class="design-card-img" onerror="this.src='https://via.placeholder.com/300x180?text=Design+Image'">
+                <div class="design-card-content">
+                    <div class="design-card-title">AI 商業應用 - 商品</div>
+                    <div class="design-count">共 4 張作品</div>
+                </div>
+            </div>
+            
+            <div class="design-card" onclick="openGallery('網站小遊戲', 'design_game.mp4')">
+                <video class="design-card-img" autoplay loop muted playsinline>
+                    <source src="design_game.mp4" type="video/mp4">
+                </video>
+                <div class="design-card-content">
+                    <div class="design-card-title">網站小遊戲</div>
+                    <div class="design-count">影片展示</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div id="imageModal" class="modal" onclick="closeModal(event)">
+        <span class="close-modal" onclick="closeModal(event)">&times;</span>
+        <div class="modal-gallery-container" id="galleryContainer">
+            <h3 id="galleryTitle" style="text-align:center; color:#3e2f20;"></h3>
+            <div class="modal-gallery-grid" id="galleryGrid"></div>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById("imageModal");
+        const galleryContainer = document.getElementById("galleryContainer");
+        const galleryGrid = document.getElementById("galleryGrid");
+        const galleryTitle = document.getElementById("galleryTitle");
+
+        function openGallery(title, filesString) {
+            modal.style.display = "block";
+            galleryContainer.style.display = "block";
+            document.body.style.overflow = "hidden";
+            galleryTitle.innerText = title;
+            galleryGrid.innerHTML = ""; 
+
+            const files = filesString.split(','); 
+            files.forEach(src => {
+                let el;
+                const path = src.trim();
+                if (path.toLowerCase().endsWith('.mp4')) {
+                    el = document.createElement('video');
+                    el.src = path;
+                    el.autoplay = el.loop = el.muted = el.controls = true;
+                } else {
+                    el = document.createElement('img');
+                    el.src = path;
+                }
+                el.classList.add('modal-gallery-img');
+                galleryGrid.appendChild(el);
+            });
+        }
+
+        function closeModal(event) {
+            if (!event || event.target === modal || event.target.classList.contains('close-modal')) {
+                modal.style.display = "none";
+                document.body.style.overflow = "auto";
+                galleryGrid.innerHTML = "";
+            }
+        }
+    </script>
+    
+    <footer><p>&copy; 2026 CHIA LING TUNG. All rights reserved.</p></footer>
+</body>
+</html>
