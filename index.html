@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作品集 - CHIA LING TUNG</title>
+    <style>
+        html { scroll-behavior: smooth; }
+        body { margin: 0; padding: 0; font-family: "Helvetica Neue", Arial, "Microsoft JhengHei", sans-serif; background-color: #fbf7f4; color: #5a4a3a; line-height: 1.6; }
+        
+        /* --- 導覽列 --- */
+        header { display: flex; justify-content: space-between; align-items: center; padding: 30px 50px; background-color: #fbf7f4; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #eaddcf; }
+        .brand-name { font-family: "Times New Roman", "Microsoft JhengHei", serif; font-size: 32px; color: #bfa588; text-transform: uppercase; letter-spacing: 5px; font-weight: bold; }
+        nav a { text-decoration: none; color: #5a4a3a; margin-left: 30px; font-size: 16px; font-weight: 500; transition: 0.3s; }
+        nav a:hover { color: #d4a373; }
+        
+        /* --- Hero 主視覺 --- */
+        .hero { text-align: center; padding: 80px 20px; }
+        .hero h1 { font-family: "Times New Roman", serif; font-size: 56px; margin: 0; color: #3e2f20; letter-spacing: 2px; }
+        .hero-separator { width: 80px; height: 3px; background-color: #d4a373; margin: 30px auto; }
+        
+        section { padding: 40px 20px; max-width: 1000px; margin: 0 auto; }
+        
+        h2.section-title { 
+            font-family: "Times New Roman", "Microsoft JhengHei", serif; font-size: 32px; color: #3e2f20; 
+            border-left: 5px solid #d4a373; padding-left: 15px; margin-bottom: 40px; 
+            display: flex; align-items: center; margin-top: 60px;
+        }
+        .section-icon { width: 34px; height: 34px; margin-right: 15px; stroke: #d4a373; stroke-width: 1.5; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+
+        /* --- 個人簡介 Profile --- */
+        .profile-container { display: flex; gap: 50px; flex-wrap: wrap; background: #fff; padding: 40px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); margin-bottom: 60px; }
+        /* 增加左側容器最小寬度以容納更大的媒體 */
+        .profile-left { flex: 1; text-align: center; min-width: 350px; }
+        
+        /* 修改處：變大、變正方形、增加突出陰影 */
+        .profile-video { 
+            width: 350px; /* 寬度加大 */
+            height: 350px; /* 高度加大，與寬度相同形成正方形 */
+            object-fit: cover; 
+            border-radius: 16px; /* 稍微圓角的正方形 */
+            border: 6px solid #fbf7f4; 
+            box-shadow: 0 15px 35px rgba(62, 47, 32, 0.25); /* 更深、更突出的陰影 */
+        }
+        
+        .profile-right { flex: 2; min-width: 300px; }
+        .profile-info-list { list-style: none; padding: 0; margin-bottom: 20px; }
+        .profile-info-list li { margin-bottom: 8px; font-size: 16px; border-bottom: 1px dashed #eee; padding-bottom: 5px; }
+        .profile-info-list strong { color: #d4a373; margin-right: 10px; }
+        .bio-text { background: #f9f9f9; padding: 20px; border-left: 4px solid #998a7b; font-size: 15px; color: #666; }
+
+        /* --- 學歷經歷與證照 --- */
+        .timeline-box { margin-bottom: 40px; }
+        .timeline-item { background: #fff; padding: 25px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.03); border-left: 5px solid #bfa588; }
+        .timeline-title { font-size: 20px; font-weight: bold; color: #3e2f20; margin-bottom: 5px; }
+        .timeline-meta { font-size: 14px; color: #998a7b; margin-bottom: 15px; font-style: italic; }
+        .timeline-desc { font-size: 15px; color: #555; }
+        
+        .cert-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+        .cert-item { background: #fff; padding: 15px; border: 1px solid #eee; text-align: center; cursor: pointer; transition: 0.3s; }
+        .cert-item:hover { transform: translateY(-5px); border-color: #d4a373; }
+        .cert-provider { font-size: 12px; color: #998a7b; text-transform: uppercase; margin-bottom: 5px; }
+        .cert-name { font-weight: bold; font-size: 14px; color: #333; }
+
+        /* --- 我的設計卡片樣式 --- */
+        .design-grid-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; }
+        .design-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; cursor: pointer; border: 1px solid #eee; display: flex; flex-direction: column; position: relative; }
+        .design-card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(212, 163, 115, 0.2); }
+        .design-card.gallery-type::after { content: '❐ 多圖相簿'; position: absolute; top: 10px; right: 10px; background: rgba(62, 47, 32, 0.8); color: #fff; font-size: 12px; padding: 4px 8px; border-radius: 4px; }
+        .design-card-img { width: 100%; height: 180px; object-fit: cover; border-bottom: 3px solid #fbf7f4; background-color: #f0e6dc; }
+        .design-card-content { padding: 20px; flex-grow: 1; background: #3e2f20; color: #fff; text-align: center; }
+        .design-count { font-size: 13px; color: #d4a373; }
+
+        /* --- 燈箱樣式 --- */
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(62, 47, 32, 0.95); backdrop-filter: blur(5px); overflow-y: auto; }
+        .close-modal { position: fixed; top: 20px; right: 40px; color: #fbf7f4; font-size: 50px; cursor: pointer; z-index: 2001;}
+        .modal-gallery-container { display: none; width: 90%; max-width: 900px; margin: 60px auto 40px auto; background: #fbf7f4; padding: 40px; border-radius: 12px; }
+        
+        /* 燈箱內容容器與標題樣式 */
+        .modal-gallery-content { display: flex; flex-direction: column; gap: 30px; }
+        .gallery-section-title { font-size: 24px; color: #d4a373; margin-bottom: 20px; border-bottom: 2px solid #eaddcf; padding-bottom: 10px; text-align: center; }
+        
+        /* 網格佈局：單欄垂直排列 */
+        .gallery-section-grid { 
+            display: grid; 
+            grid-template-columns: 1fr; /* 單欄 */
+            gap: 30px; /* 垂直間距 */
+            justify-items: center; /* 水平置中 */
+        }
+        
+        /* 「圖框」樣式：統一大小，並作為可點擊的連結 */
+        .modal-gallery-item-frame {
+            display: block; 
+            width: 100%;
+            max-width: 700px; /* 限制最大寬度 */
+            aspect-ratio: 4 / 3; /* 統一長方形比例 */
+            border-radius: 8px; 
+            border: 4px solid #fff; 
+            background-color: #f0e6dc; 
+            overflow: hidden; 
+            transition: 0.3s;
+            position: relative;
+            margin: 0 auto; 
+            cursor: pointer; /* 恢復手指游標 */
+        }
+
+        /* 滑鼠懸停效果 */
+        .modal-gallery-item-frame:hover {
+            transform: translateY(-5px);
+            border-color: #d4a373;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* 「內容」樣式：圖片/影片 */
+        .modal-gallery-item-content {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* 完整顯示，不裁切 */
+            display: block; 
+        }
+        
+        /* 避免單圖破版 */
+        .modal-single-content { margin: auto; display: block; max-width: 90%; max-height: 90vh; position: relative; top: 50%; transform: translateY(-50%); border: 4px solid #fbf7f4; box-shadow: 0 20px 50px rgba(0,0,0,0.5); object-fit: contain; }
+
+        /* --- 聯絡我 --- */
+        .contact-container { background: #fff; padding: 40px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); max-width: 600px; margin: 0 auto; border: 1px solid #eee; }
+        .contact-form .form-group { margin-bottom: 20px; }
+        .contact-form label { display: block; margin-bottom: 8px; font-weight: bold; color: #3e2f20; }
+        .contact-form input, .contact-form textarea { width: 100%; padding: 12px; border: 1px solid #eaddcf; border-radius: 8px; background-color: #fbf7f4; box-sizing: border-box; }
+        .submit-btn { width: 100%; padding: 15px; background-color: #d4a373; color: white; border: none; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer; }
+        
+        footer { text-align: center; padding: 40px; background-color: #efe6dd; color: #8c7b6d; font-size: 14px; margin-top: 80px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="brand-name">作品集</div>
+        <nav>
+            <a href="#profile">個人簡介</a>
+            <a href="#edu-exp">學經歷</a>
+            <a href="#certs">專業證照</a>
+            <a href="#my-designs">我的設計</a>
+            <a href="#contact" style="color: #d4a373; font-weight: bold;">聯絡我</a>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h1>CHIA LING TUNG</h1>
+        <div class="hero-separator"></div>
+        <p>AI 應用規劃師 | 美編平面設計師 | 跨領域整合專家</p>
+    </div>
+
+    <section id="profile">
+        <h2 class="section-title">
+            <svg class="section-icon" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            個人簡介 Profile
+        </h2>
+        <div class="profile-container">
+            <div class="profile-left">
+                <video class="profile-video" autoplay loop muted playsinline>
+                    <source src="profile_video.mp4" type="video/mp4">
+                    您的瀏覽器不支援影片播放。
+                </video>
+            </div>
+            <div class="profile-right">
+                <ul class="profile-info-list">
+                    <li><strong>姓名：</strong>董家玲 (Linda)</li>
+                    <li><strong>居住地：</strong>桃園市</li>
+                    <li><strong>年齡：</strong>41歲 (滿滿的經驗值加成！)</li>
+                    <li><strong>駕照：</strong>汽車 / 機車</li>
+                    <li><strong>目標職務：</strong>AI 應用規劃師、美編平面設計師</li>
+                </ul>
+                <div class="bio-text">
+                    <p>平面設計師將從單純的創作者，進化為具備全局觀的「規劃師」。我不僅理解 AI 圖像生成的底層邏輯，更能補足對 AI 導入流程、資料與風險的掌控能力。</p>
+                    <p style="margin-top:10px;">透過掌握「問題拆解、流程設計、跨域整合」等新素養，我能設計出「AI Agent 工作流」，將 AI 轉化為能自主協作的數位同事。在未來競爭中，成為真正「會駕駛 AI 的人」。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="edu-exp">
+        <h2 class="section-title">
+            <svg class="section-icon" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+            學歷 Education
+        </h2>
+        <div class="timeline-box">
+            <div class="timeline-item">
+                <div class="timeline-title">私立德明技術學院 - 財務金融科</div>
+                <div class="timeline-desc">有理財背景，培養了對「錢」的敏感度。毛利率、銷售成長、財務報表？逃不過我的法眼，畢竟數字是不會說謊的。</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-title">私立醒吾技術學院 - 資訊傳播系</div>
+                <div class="timeline-desc">用電腦排版與設計，讓我做的報告永遠比別人「漂亮」一點。邏輯思考？那當然是標配，再搭配影音剪輯，讓商品行銷數字大幅提升。</div>
+            </div>
+        </div>
+
+        <h2 class="section-title">
+            <svg class="section-icon" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"></path><path d="M5 12h14"></path></svg>
+            經歷 Experience
+        </h2>
+        <div class="timeline-box">
+            <div class="timeline-item">
+                <div class="timeline-title">美商公司 (金百利) - 行政支援與後勤整合</div>
+                <div class="timeline-meta">任職 9 年</div>
+                <div class="timeline-desc">
+                    協助主管處理各種「急件」，當他們的定心丸。<br>
+                    • <strong>公文歸檔：</strong> 收發公文快狠準，資料歸檔整齊到連強迫症都滿意。<br>
+                    • <strong>業務行銷：</strong> 會議待辦事項，控制預算，主管要求都要盡善盡美。<br>
+                    • <strong>後勤整合：</strong> 採購、總務、福委會。讓員工開心，比搞定客戶還難！
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-title">澳洲與紐西蘭打工度假</div>
+                <div class="timeline-meta">共 2 年半</div>
+                <div class="timeline-desc">在南半球的冒險，培養了解決問題的能力與跨文化適應力。喜歡突破自我極限，面對困難絕不退縮。</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-title">科技園區</div>
+                <div class="timeline-meta">任職 2 年多</div>
+                <div class="timeline-desc">累積紮實的行政與專案執行經驗。</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certs">
+        <h2 class="section-title">
+            <svg class="section-icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+            專業證照 Certificates
+        </h2>
+        <div class="cert-grid">
+            <div class="cert-item" onclick="openModal('影像.jpg')"><div class="cert-provider">AWS</div><div class="cert-name">Generative AI: Business Skill</div></div>
+            <div class="cert-item" onclick="openModal('董家玲.jpg')"><div class="cert-provider">台科大</div><div class="cert-name">AI for Good 實戰工作坊</div></div>
+            <div class="cert-item" onclick="openModal('gemini_cert.jpg')"><div class="cert-provider">Google</div><div class="cert-name">Gemini Certified Educator</div></div>
+            <div class="cert-item" onclick="openModal('chatgpt_cert.jpg')"><div class="cert-provider">OpenAI</div><div class="cert-name">ChatGPT Foundations</div></div>
+            <div class="cert-item" onclick="openModal('01.jpg')"><div class="cert-provider">Anthropic</div><div class="cert-name">Claude Code in Action</div></div>
+            <div class="cert-item" onclick="openModal('02.jpg')"><div class="cert-provider">Anthropic</div><div class="cert-name">Model Context Protocol</div></div>
+            <div class="cert-item" onclick="openModal('03.jpg')"><div class="cert-provider">Anthropic</div><div class="cert-name">AI Fluency for Educators</div></div>
+            <div class="cert-item" onclick="openModal('04.jpg')"><div class="cert-provider">Anthropic</div><div class="cert-name">AI Fluency for Students</div></div>
+            <div class="cert-item" onclick="openModal('05.jpg')"><div class="cert-provider">Anthropic</div><div class="cert-name">AI Framework</div></div>
+            <div class="cert-item" onclick="openModal('emt1.JPG')"><div class="cert-provider">專業認證</div><div class="cert-name">EMT-1 初級救護員</div></div>
+            <div class="cert-item" onclick="openModal('osha.jpg')"><div class="cert-provider">勞動部</div><div class="cert-name">甲種職安業務主管</div></div>
+        </div>
+    </section>
+
+    <section id="my-designs">
+        <h2 class="section-title">
+            <svg class="section-icon" viewBox="0 0 24 24">
+                <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                <path d="M2 2l7.5 8.6"></path>
+                <path d="M11 11l3.5 3.5"></path>
+            </svg>
+            我的設計 My Designs
+        </h2>
+        <div class="design-grid-container">
+            
+            <div class="design-card gallery-type" onclick="openGallery('AI 圖像生成區', 'ai_art_1.mp4,ai_art_2.mp4,ai_art_3.mp4,ai_art_4.mp4,ai_art_5.mp4,ai_art_6.mp4,ai_art_7.mp4,ai_art_8.mp4,ai_art_9.mp4,ai_art_10.mp4')">
+                <video class="design-card-img" autoplay loop muted playsinline>
+                    <source src="ai_art_1.mp4" type="video/mp4">
+                </video>
+                <div class="design-card-content">
+                    <div class="design-card-title">AI 圖像生成區</div>
+                    <div class="design-count">共 10 段影片</div>
+                </div>
+            </div>
+
+            <div class="design-card gallery-type" onclick="openGallery('AI 商業應用 - 商品', 'ai_prod_1.jpg,ai_prod_2.jpg,ai_prod_3.jpg,ai_prod_4.jpg,ai_prod_5.jpg,ai_prod_6.jpg,ai_prod_7.jpg,ai_prod_8.jpg')">
+                <img src="ai_prod_1.jpg" class="design-card-img" onerror="this.src='https://via.placeholder.com/300x180?text=Design+Image'">
+                <div class="design-card-content">
+                    <div class="design-card-title">AI 商業應用 - 商品</div>
+                    <div class="design-count">共 8 張作品</div>
+                </div>
+            </div>
+
+            <div class="design-card gallery-type" onclick="openAppGallery('AI 商業應用 - APP', 'ai_app_1.jpg|https://lindalinda0413-collab.github.io/Account-sharing/,ai_app_2.jpg|https://lindalinda0413-collab.github.io/xmas-party413/,ai_app_3.jpg|#,ai_app_4.jpg|#,ai_app_5.jpg|#,ai_app_6.jpg|#')">
+                <img src="ai_app_1.jpg" class="design-card-img" onerror="this.src='https://via.placeholder.com/300x180?text=Design+Image'">
+                <div class="design-card-content">
+                    <div class="design-card-title">AI 商業應用 - APP</div>
+                    <div class="design-count">共 6 張作品</div>
+                </div>
+            </div>
+
+            <div class="design-card gallery-type" onclick="openAppGallery('AI 商業應用 - 網站', 'web_1.jpg|https://linda-earth.netlify.app/,web_2.jpg|https://bbq2026.netlify.app/,web_3.jpg|https://linda-timer.netlify.app/')">
+                <img src="web_1.jpg" class="design-card-img" onerror="this.src='https://via.placeholder.com/300x180?text=Design+Image'">
+                <div class="design-card-content">
+                    <div class="design-card-title">AI 商業應用 - 網站</div>
+                    <div class="design-count">共 3 張作品</div>
+                </div>
+            </div>
+
+            <div class="design-card gallery-type" onclick="openGallery('平面設計 - 菜單', 'menu_1.jpg,menu_2.jpg,menu_3.jpg,menu_4.jpg,menu_5.jpg,menu_6.jpg')">
+                <img src="menu_1.jpg" class="design-card-img" onerror="this.src='https://via.placeholder.com/300x180?text=Design+Image'">
+                <div class="design-card-content">
+                    <div class="design-card-title">平面設計 - 菜單</div>
+                    <div class="design-count">共 6 張作品</div>
+                </div>
+            </div>
+
+            <div class="design-card gallery-type" onclick="openGallery('平面設計 - 海報', 'poster_1.jpg,poster_2.jpg,poster_3.jpg,poster_4.jpg,poster_5.jpg,poster_6.jpg')">
+                <img src="poster_1.jpg" class="design-card-img" onerror="this.src='https://via.placeholder.com/300x180?text=Design+Image'">
+                <div class="design-card-content">
+                    <div class="design-card-title">平面設計 - 海報</div>
+                    <div class="design-count">共 6 張作品</div>
+                </div>
+            </div>
+
+            <div class="design-card gallery-type" onclick="openGallery('平面設計 - 紅包袋', 'red_env_1.jpg,red_env_2.jpg')">
+                <img src="red_env_1.jpg" class="design-card-img" onerror="this.src='https://via.placeholder.com/300x180?text=Design+Image'">
+                <div class="design-card-content">
+                    <div class="design-card-title">平面設計 - 紅包袋</div>
+                    <div class="design-count">共 2 張作品</div>
+                </div>
+            </div>
+
+            <div class="design-card gallery-type" onclick="openGallery('平面設計 - 旅遊行程表', 'travel_1.jpg,travel_2.jpg,travel_3.jpg,travel_4.jpg')">
+                <img src="travel_1.jpg" class="design-card-img" onerror="this.src='https://via.placeholder.com/300x180?text=Design+Image'">
+                <div class="design-card-content">
+                    <div class="design-card-title">平面設計 - 旅遊行程表</div>
+                    <div class="design-count">共 4 張作品</div>
+                </div>
+            </div>
+
+            <div class="design-card gallery-type" onclick="openLineGallery()">
+                <img src="design_line.jpg" class="design-card-img" onerror="this.src='https://via.placeholder.com/300x180?text=Design+Image'">
+                <div class="design-card-content">
+                    <div class="design-card-title">Line</div>
+                    <div class="design-count">共 15 個作品 (含影片與圖片)</div>
+                </div>
+            </div>
+            
+            <div class="design-card" onclick="openGallery('網站小遊戲', 'design_game.mp4')">
+                <video class="design-card-img" autoplay loop muted playsinline>
+                    <source src="design_game.mp4" type="video/mp4">
+                    您的瀏覽器不支援影片播放。
+                </video>
+                <div class="design-card-content">
+                    <div class="design-card-title">網站小遊戲</div>
+                    <div class="design-count">影片展示</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">
+            <svg class="section-icon" viewBox="0 0 24 24">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            聯絡我 Contact Me
+        </h2>
+        <div class="contact-container">
+            <form class="contact-form" onsubmit="alert('感謝您的訊息！(這是一個靜態展示表單)'); return false;">
+                <div class="form-group">
+                    <label for="name">姓名：</label>
+                    <input type="text" id="name" name="name" required placeholder="請輸入您的姓名">
+                </div>
+                <div class="form-group">
+                    <label for="phone">電話：</label>
+                    <input type="tel" id="phone" name="phone" placeholder="請輸入您的聯絡電話">
+                </div>
+                <div class="form-group">
+                    <label for="message">留言：</label>
+                    <textarea id="message" name="message" rows="5" required placeholder="請輸入您想說的話..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">發送訊息</button>
+            </form>
+        </div>
+    </section>
+
+    <div id="imageModal" class="modal" onclick="closeModal(event)">
+        <span class="close-modal" onclick="closeModal(event)">&times;</span>
+        
+        <img class="modal-single-content" id="imgSource" style="display: none;">
+        
+        <div class="modal-gallery-container" id="galleryContainer">
+            <h3 id="galleryTitle" style="text-align:center; color:#3e2f20;"></h3>
+            <div class="modal-gallery-content" id="galleryContent"></div>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById("imageModal");
+        const imgSource = document.getElementById("imgSource");
+        const galleryContainer = document.getElementById("galleryContainer");
+        const galleryContent = document.getElementById("galleryContent");
+        const galleryTitle = document.getElementById("galleryTitle");
+
+        // 單張圖片開啟 (證照用)
+        function openModal(src) {
+            modal.style.display = "block";
+            imgSource.style.display = "block";
+            galleryContainer.style.display = "none";
+            imgSource.src = src;
+            document.body.style.overflow = "hidden";
+        }
+
+        // 一般相簿開啟 (支援 JPG 和 MP4) - 採用圖框+內容分離模式
+        function openGallery(title, filesString) {
+            modal.style.display = "block";
+            imgSource.style.display = "none";
+            galleryContainer.style.display = "block";
+            document.body.style.overflow = "hidden";
+            galleryTitle.innerText = title;
+            // 清空並設定為 grid 佈局
+            galleryContent.innerHTML = ""; 
+            galleryContent.className = "modal-gallery-content gallery-section-grid";
+
+            const files = filesString.split(','); 
+            files.forEach(src => {
+                let el;
+                const path = src.trim();
+                // 偵測副檔名
+                if (path.toLowerCase().endsWith('.mp4')) {
+                    el = document.createElement('video');
+                    el.src = path;
+                    el.autoplay = el.loop = el.muted = el.controls = true;
+                } else {
+                    el = document.createElement('img');
+                    el.src = path;
+                }
+                // 對於一般媒體，它同時是圖框也是內容
+                el.classList.add('modal-gallery-item-frame');
+                el.classList.add('modal-gallery-item-content');
+                galleryContent.appendChild(el);
+            });
+        }
+
+        // 關鍵修改：開啟 App/網站連結相簿 - 改回使用 <a> 標籤在新視窗開啟，並加入圖片錯誤處理
+        function openAppGallery(title, dataString) {
+            modal.style.display = "block";
+            imgSource.style.display = "none";
+            galleryContainer.style.display = "block";
+            document.body.style.overflow = "hidden";
+            galleryTitle.innerText = title;
+            // 清空並設定為 grid 佈局
+            galleryContent.innerHTML = ""; 
+            galleryContent.className = "modal-gallery-content gallery-section-grid";
+
+            // dataString 格式: "img1.jpg|url1,img2.jpg|url2,..."
+            const items = dataString.split(','); 
+            items.forEach(item => {
+                const parts = item.split('|');
+                const imgSrc = parts[0].trim();
+                const linkUrl = parts[1] ? parts[1].trim() : '#';
+                
+                // 建立 <a> 作為圖框 (Frame)，並設定 target="_blank" 在新視窗開啟
+                const linkEl = document.createElement('a');
+                linkEl.href = linkUrl;
+                linkEl.target = "_blank"; // 關鍵：新視窗開啟
+                linkEl.classList.add('modal-gallery-item-frame'); // 添加統一圖框樣式
+                
+                // 建立 <img> 作為內容 (Content)，顯示縮圖，並加入錯誤處理
+                const imgEl = document.createElement('img');
+                imgEl.src = imgSrc;
+                imgEl.classList.add('modal-gallery-item-content'); // 添加統一內容樣式
+                // 加入圖片載入失敗時的替代圖片
+                imgEl.onerror = function() { this.src = 'https://via.placeholder.com/400x300?text=Image+Not+Found'; };
+                
+                linkEl.appendChild(imgEl);
+                galleryContent.appendChild(linkEl);
+            });
+        }
+
+        // 專屬函式：開啟 Line 分類相簿 - 修改為支援特定物件的連結
+        function openLineGallery() {
+            modal.style.display = "block";
+            imgSource.style.display = "none";
+            galleryContainer.style.display = "block";
+            document.body.style.overflow = "hidden";
+            galleryTitle.innerText = "Line";
+            // 清空並設定為 column 佈局
+            galleryContent.innerHTML = "";
+            galleryContent.className = "modal-gallery-content";
+
+            // 定義分類資料 - 修改主題為物件以支援連結
+            const categories = [
+                {
+                    title: "主題",
+                    files: [
+                        {
+                            src: "design_line.jpg",
+                            url: "https://store.line.me/themeshop/product/c8c5c889-e3d9-410a-96a1-d4c052389910/zh-Hant"
+                        }
+                    ]
+                },
+                {
+                    title: "貼圖",
+                    files: ["line_1.jpg", "line_2.jpg", "line_3.jpg", "line_4.jpg", "line_5.jpg"]
+                },
+                {
+                    title: "動態貼圖",
+                    files: ["line_video_1.mp4"]
+                },
+                {
+                    title: "表情貼",
+                    files: ["line_6.jpg", "line_7.jpg", "line_8.jpg", "line_9.jpg", "line_10.jpg", "line_11.jpg", "line_12.jpg", "line_13.jpg"]
+                }
+            ];
+
+            // 建立分類區塊
+            categories.forEach(cat => {
+                // 建立標題
+                const titleEl = document.createElement('div');
+                titleEl.className = 'gallery-section-title';
+                titleEl.innerText = cat.title;
+                galleryContent.appendChild(titleEl);
+
+                // 建立網格容器
+                const gridEl = document.createElement('div');
+                gridEl.className = 'gallery-section-grid';
+                
+                // 加入檔案 (支援字串或物件格式)
+                cat.files.forEach(item => {
+                    let el;
+                    let containerEl;
+                    let path = "";
+                    let linkUrl = "";
+
+                    // 判斷資料類型
+                    if (typeof item === 'string') {
+                        path = item.trim();
+                    } else if (typeof item === 'object') {
+                        path = item.src.trim();
+                        linkUrl = item.url ? item.url.trim() : "";
+                    }
+
+                    // 建立媒體元素
+                    if (path.toLowerCase().endsWith('.mp4')) {
+                        el = document.createElement('video');
+                        el.src = path;
+                        el.autoplay = el.loop = el.muted = el.controls = true;
+                        el.classList.add('modal-gallery-item-frame');
+                        el.classList.add('modal-gallery-item-content');
+                        containerEl = el;
+                    } else {
+                        // 圖片
+                        el = document.createElement('img');
+                        el.src = path;
+                        el.classList.add('modal-gallery-item-content');
+                        
+                        if (linkUrl) {
+                            // 有連結：建立 <a> 包裹
+                            containerEl = document.createElement('a');
+                            containerEl.href = linkUrl;
+                            containerEl.target = "_blank"; // 新視窗開啟
+                            containerEl.classList.add('modal-gallery-item-frame');
+                            containerEl.appendChild(el);
+                        } else {
+                            // 無連結：純圖片
+                            el.classList.add('modal-gallery-item-frame');
+                            containerEl = el;
+                        }
+                    }
+                    gridEl.appendChild(containerEl);
+                });
+                galleryContent.appendChild(gridEl);
+            });
+        }
+
+        function closeModal(event) {
+            if (!event || event.target === modal || event.target.classList.contains('close-modal')) {
+                modal.style.display = "none";
+                document.body.style.overflow = "auto";
+                imgSource.src = ""; // 清空單圖
+                galleryContent.innerHTML = ""; // 清空相簿
+            }
+        }
+    </script>
+    
+    <footer><p>&copy; 2026 CHIA LING TUNG. All rights reserved.</p></footer>
+</body>
+</html>
