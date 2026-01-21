@@ -173,7 +173,7 @@
                 </ul>
                 <div class="bio-text">
                     <p>平面設計師將從單純的創作者，進化為具備全局觀的「規劃師」。我不僅理解 AI 圖像生成的底層邏輯，更能補足對 AI 導入流程、資料與風險的掌控能力。</p>
-                    <p style="margin-top:10px;">透過掌握「問題拆解、流程設計、跨域整合」等新素養，我能設計出「AI Agent 工作流」，將 AI 轉化為能自主協作的數位同事。在未來競爭中，成為真正「會駕駛 AI 的人」。</p>
+                    <p style="margin-top:10px;">透過掌握「問題拆解、流程設計、跨域整合」等新素養，我能設計出「AI Agent 工作流」，將 AI 轉化為能自主協作的數位同事。在未来競爭中，成為真正「會駕駛 AI 的人」。</p>
                 </div>
             </div>
         </div>
@@ -265,11 +265,11 @@
                 </div>
             </div>
 
-            <div class="design-card gallery-type" onclick="openGallery('AI 商業應用 - 商品', 'ai_prod_1.jpg,ai_prod_2.jpg,ai_prod_3.jpg,ai_prod_4.jpg,ai_prod_5.jpg,ai_prod_6.jpg,ai_prod_7.jpg,ai_prod_8.jpg')">
+            <div class="design-card gallery-type" onclick="openGallery('AI 商業應用 - 商品', 'ai_prod_1.jpg,ai_prod_2.jpg,ai_prod_3.jpg,ai_prod_4.jpg,ai_prod_5.jpg,ai_prod_6.jpg,ai_prod_7.jpg,ai_prod_8.jpg,LINE_ALBUM_AI_250219_1.mp4,LINE_ALBUM_AI_250219_2.mp4')">
                 <img src="ai_prod_1.jpg" class="design-card-img" onerror="this.src='https://via.placeholder.com/300x180?text=Design+Image'">
                 <div class="design-card-content">
                     <div class="design-card-title">AI 商業應用 - 商品</div>
-                    <div class="design-count">共 8 張作品</div>
+                    <div class="design-count">共 10 個作品 (含影片)</div>
                 </div>
             </div>
 
@@ -352,10 +352,14 @@
             聯絡我 Contact Me
         </h2>
         <div class="contact-container">
-            <form class="contact-form" onsubmit="alert('感謝您的訊息！(這是一個靜態展示表單)'); return false;">
+            <form class="contact-form" action="https://formspree.io/f/請替換成您的Formspree專屬連結" method="POST">
                 <div class="form-group">
                     <label for="name">姓名：</label>
                     <input type="text" id="name" name="name" required placeholder="請輸入您的姓名">
+                </div>
+                <div class="form-group">
+                    <label for="email">電子郵件：</label>
+                    <input type="email" id="email" name="email" required placeholder="請輸入您的 Email (以便回覆)">
                 </div>
                 <div class="form-group">
                     <label for="phone">電話：</label>
@@ -475,7 +479,7 @@
             galleryContent.innerHTML = "";
             galleryContent.className = "modal-gallery-content";
 
-            // 定義分類資料 - 修改主題、貼圖、表情貼為物件以支援連結
+            // 定義分類資料 - 修改主題、貼圖、表情貼為物件以支援連結，已移除動態貼圖
             const categories = [
                 {
                     title: "主題",
@@ -495,10 +499,6 @@
                         { src: "line_4.jpg", url: "https://line.me/S/sticker/32250350" },
                         { src: "line_5.jpg", url: "https://line.me/S/sticker/32114609" }
                     ]
-                },
-                {
-                    title: "動態貼圖",
-                    files: ["line_video_1.mp4"]
                 },
                 {
                     title: "表情貼",
